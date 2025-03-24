@@ -1,0 +1,44 @@
+.animals-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.animal {
+  width: 250px;
+  height: 300px;
+  background-color: #e88a8a48;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: inherit;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.animal h4 {
+  margin: 25px;
+  font-size: 20px;
+  color: rgb(27, 27, 27);
+}
+
+.image-container {
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2%;
+}
+
+.animal.fed {
+  background-color: #a5e994;
+}
