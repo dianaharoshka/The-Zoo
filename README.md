@@ -43,3 +43,6 @@ Make sure you have Node.js installed, then run:
 npm install
 npm start
 ```
+## 🚀 Live Demo
+
+You can view the live version https://the-zoo-123.netlify.app/ 
