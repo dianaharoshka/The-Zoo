@@ -33,7 +33,6 @@ This is a simple React web app that displays a list of animals with their detail
 
 ```bash
 git clone https://github.com/your-username/the-zoo.git
-cd the-zoo
 ```
 
 ### 2. Install dependencies
