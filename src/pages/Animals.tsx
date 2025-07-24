@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import noImage from "../assets/no-image.png";
 import chinchilla from "../assets/Chinchilla.jpg";
 import häst from "../assets/häst.jpg";
+import AnimalCardSkeleton from "../components/AnimalCardSkeleton";
 
 export const Animals = () => {
   const [animals, setAnimals] = useState<IAnimal[]>([]);
@@ -36,32 +37,36 @@ export const Animals = () => {
 
   return (
     <section className="animals-container">
-      {animals.map((animal) => (
-        <div
-          key={animal.id}
-          className={`animal ${fedAnimals[animal.id] ? "fed" : ""}`}
-        >
-          <h4>{animal.name}</h4>
-          <div className="image-container">
-            <Link to={`/animal/${animal.id}`}>
-              <img
-                className="animal-image"
-                src={animal.imageUrl}
-                alt={animal.name}
-                onError={(e) => {
-                  if (animal.id === 8) {
-                    e.currentTarget.src = häst;
-                  } else if (animal.id === 13) {
-                    e.currentTarget.src = chinchilla;
-                  } else {
-                    e.currentTarget.src = noImage;
-                  }
-                }}
-              />
-            </Link>
-          </div>
-        </div>
-      ))}
+      {animals.length === 0
+        ? Array.from({ length: 15 }).map((_, i) => (
+            <AnimalCardSkeleton key={i} />
+          ))
+        : animals.map((animal) => (
+            <div
+              key={animal.id}
+              className={`animal ${fedAnimals[animal.id] ? "fed" : ""}`}
+            >
+              <h4>{animal.name}</h4>
+              <div className="image-container">
+                <Link to={`/animal/${animal.id}`}>
+                  <img
+                    className="animal-image"
+                    src={animal.imageUrl}
+                    alt={animal.name}
+                    onError={(e) => {
+                      if (animal.id === 8) {
+                        e.currentTarget.src = häst;
+                      } else if (animal.id === 13) {
+                        e.currentTarget.src = chinchilla;
+                      } else {
+                        e.currentTarget.src = noImage;
+                      }
+                    }}
+                  />
+                </Link>
+              </div>
+            </div>
+          ))}
     </section>
   );
 };
